@@ -1,34 +1,23 @@
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/UI/Layout";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 import Shop from "./pages/Shop";
 import ShoppingCart from "./pages/ShoppingCart";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
         <Layout>
-            <Switch>
-                <Route path={"/"} exact>
-                    <Redirect to={"/home"} />
-                </Route>
-                <Route path={"/home"}>
-                    <Home />
-                </Route>
-                <Route path={"/products"} exact>
-                    <Shop />
-                </Route>
-                <Route path={"/products/:productId"}>
-                    <ProductDetail />
-                </Route>
-                <Route path={"/cart"}>
-                    <ShoppingCart />
-                </Route>
-                <Route path={"*"}>
-                    <NotFound />
-                </Route>
-            </Switch>
+            <Routes>
+                <Route path={"/"} element={<Navigate to={"/home"} />} />
+                <Route path={"/home"} element={<Home />} />
+                <Route path={"/products"} element={<Shop />} />
+                <Route path={"/products/:productId"} element={<ProductDetail />} />
+                <Route path={"/cart"} element={<ShoppingCart />} />
+                <Route path={"*"} element={<NotFound />} />
+            </Routes>
         </Layout>
     );
 }

@@ -532,11 +532,10 @@ header .navbar-nav .nav-item .nav-link.active::after {
     position: relative;
 }
 .tab-info {
-    position: absolute;
+    /* position: absolute;
     width: 100%;
     left: 0;
-    top: 0;
-    display: none;
+    top: 0; */
 }
 .tab-info.active {
     display: block;
